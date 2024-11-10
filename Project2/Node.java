@@ -16,4 +16,10 @@ interface Node {
 	 * @return the Collection of all the neighbors of this Node.
 	 */
 	public Collection<? extends Node> getNeighbors ();
+
+    /**
+     * Adds the specified node to the list of neighboring nodes
+     * @param node - node to be added to the neighbor list
+     */
+    public void addNeighbor(Node node);
 }
