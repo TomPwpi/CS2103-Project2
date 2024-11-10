@@ -203,9 +203,10 @@ public class IMDBGraphImpl implements IMDBGraph {
 		try {
 			//final IMDBGraph graph = new IMDBGraphImpl(IMDB_DIRECTORY + "/name.basics.tsv.gz",
 			//                                          IMDB_DIRECTORY + "/title.basics.tsv.gz");
-            final IMDBGraph graph = new IMDBGraphImpl(IMDB_DIRECTORY + "/someActors.tsv",
-			                                          IMDB_DIRECTORY + "/someMovies.tsv");
+            final IMDBGraph graph = new IMDBGraphImpl(IMDB_DIRECTORY + "/testActors.tsv",
+			                                          IMDB_DIRECTORY + "/testMovies.tsv");
 			System.out.println(graph.getActors().size());
+            //System.out.println(graph.getActors().);
 
 			final GraphSearchEngine graphSearcher = new GraphSearchEngineImpl();
 			while (true) {
@@ -216,9 +217,12 @@ public class IMDBGraphImpl implements IMDBGraph {
 				final String actorName2 = s.nextLine().trim();
 				final Node node1 = graph.getActor(actorName1);
 				final Node node2 = graph.getActor(actorName2);
+                //System.out.println(node1.getName());
+                //System.out.println(node2.getName());
 				if (node1 != null && node2 != null) {
 					List<Node> shortestPath = graphSearcher.findShortestPath(node1, node2);
-					System.out.println(node1 + " " + node2);
+                    //System.out.println(shortestPath.size());
+					//System.out.println(node1 + " " + node2);
 					if (shortestPath != null) {
 						for (Node node : shortestPath) {
 							System.out.println(node.getName());
