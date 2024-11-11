@@ -205,7 +205,8 @@ public class IMDBGraphImpl implements IMDBGraph {
 			                                          IMDB_DIRECTORY + "/title.basics.tsv.gz");
             //final IMDBGraph graph = new IMDBGraphImpl(IMDB_DIRECTORY + "/someActors.tsv",
 			//                                          IMDB_DIRECTORY + "/someMovies.tsv");
-			//System.out.println(graph.getActors().size());
+			System.out.println(graph.getActors().size());
+            System.out.println(graph.getMovies().size());
             //System.out.println("--------------------------------------------------");
             //System.out.println(graph.getActors().);
 
