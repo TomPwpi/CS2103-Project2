@@ -46,7 +46,8 @@ public class GraphSearchEngineImpl implements GraphSearchEngine {
                     
                 }
             }
-            
+            queue.remove(0);
+            i--;
         }
         return null;
     }

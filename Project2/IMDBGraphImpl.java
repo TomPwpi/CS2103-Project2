@@ -9,7 +9,7 @@ public class IMDBGraphImpl implements IMDBGraph {
 	// this might be: "/Users/sarah/IMDB". On Windows, this might be:
 	// "C:/Users/sarah/IMDB". (These are made-up examples but give a sense
 	// of the required syntax.)
-	public static final String IMDB_DIRECTORY = "/Users/tompaul/Documents/GitHub/CS2103-Project2/Project2";
+	public static final String IMDB_DIRECTORY = "/Users/tompaul/Documents/IMDBTests";
 	private static final int PROGRESS_FREQUENCY = 10000;
 
 	private static class IMDBNode implements Node {
@@ -201,11 +201,12 @@ public class IMDBGraphImpl implements IMDBGraph {
 	 */
 	public static void main (String[] args) {
 		try {
-			//final IMDBGraph graph = new IMDBGraphImpl(IMDB_DIRECTORY + "/name.basics.tsv.gz",
-			//                                          IMDB_DIRECTORY + "/title.basics.tsv.gz");
-            final IMDBGraph graph = new IMDBGraphImpl(IMDB_DIRECTORY + "/someActors.tsv",
-			                                          IMDB_DIRECTORY + "/someMovies.tsv");
-			System.out.println(graph.getActors().size());
+			final IMDBGraph graph = new IMDBGraphImpl(IMDB_DIRECTORY + "/name.basics.tsv.gz",
+			                                          IMDB_DIRECTORY + "/title.basics.tsv.gz");
+            //final IMDBGraph graph = new IMDBGraphImpl(IMDB_DIRECTORY + "/someActors.tsv",
+			//                                          IMDB_DIRECTORY + "/someMovies.tsv");
+			//System.out.println(graph.getActors().size());
+            //System.out.println("--------------------------------------------------");
             //System.out.println(graph.getActors().);
 
 			final GraphSearchEngine graphSearcher = new GraphSearchEngineImpl();
