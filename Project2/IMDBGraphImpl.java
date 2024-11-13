@@ -201,15 +201,12 @@ public class IMDBGraphImpl implements IMDBGraph {
 	 */
 	public static void main (String[] args) {
 		try {
-			final IMDBGraph graph = new IMDBGraphImpl(IMDB_DIRECTORY + "/name.basics.tsv.gz",
-			                                          IMDB_DIRECTORY + "/title.basics.tsv.gz");
-            //final IMDBGraph graph = new IMDBGraphImpl(IMDB_DIRECTORY + "/someActors.tsv",
-			//                                          IMDB_DIRECTORY + "/someMovies.tsv");
+			//final IMDBGraph graph = new IMDBGraphImpl(IMDB_DIRECTORY + "/name.basics.tsv.gz",
+			//                                          IMDB_DIRECTORY + "/title.basics.tsv.gz");
+            final IMDBGraph graph = new IMDBGraphImpl(IMDB_DIRECTORY + "/testActors.tsv",
+			                                          IMDB_DIRECTORY + "/testMovies.tsv");
 			System.out.println(graph.getActors().size());
             System.out.println(graph.getMovies().size());
-            //System.out.println("--------------------------------------------------");
-            //System.out.println(graph.getActors().);
-
 			final GraphSearchEngine graphSearcher = new GraphSearchEngineImpl();
 			while (true) {
 				final Scanner s = new Scanner(System.in);

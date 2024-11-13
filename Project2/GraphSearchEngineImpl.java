@@ -10,30 +10,36 @@ public class GraphSearchEngineImpl implements GraphSearchEngine {
 	public GraphSearchEngineImpl () {
 	}
 
-	public List<Node> findShortestPath (Node s, Node t) {
-		//return null;  // TODO implement me.
-        // Node resultNode = breadthFirstSearch(s, t);
-        // ArrayList<Node> result = new ArrayList<>();
-        // if(resultNode != null){
-        //     result.add(resultNode);
-        //     return result;
-        // }
-        // return null;
-        return breadthFirstSearch(s, t);
-	}
+	// public List<Node> findShortestPath (Node s, Node t) {
+	// 	//return null;  // TODO implement me.
+    //     // Node resultNode = breadthFirstSearch(s, t);
+    //     // ArrayList<Node> result = new ArrayList<>();
+    //     // if(resultNode != null){
+    //     //     result.add(resultNode);
+    //     //     return result;
+    //     // }
+    //     // return null;
+    //     return breadthFirstSearch(s, t);
+	// }
 
-    public List<Node> breadthFirstSearch (Node start, Node goal){
+    /**
+     * Finds the shortest path between two nodes in a graph
+     * @param s - starting node that the search begins at
+     * @param t - the end node that the search tries to reach
+     * @return a list of nodes indicating the path taken from the start node to end node
+     */
+    public List<Node> findShortestPath (Node s, Node t){
         ArrayList<Node> visited = new ArrayList<Node>();
         ArrayList<Node> queue = new ArrayList<Node>();
         HashMap<Node, Node> parent = new HashMap<Node, Node>();
         Node current;
 
-        queue.add(start);
+        queue.add(s);
 
         for (int i = 0; i < queue.size(); i++) {
             current = queue.get(i);
-            if(checkNode(current, goal)){
-                return makePath(parent, start, goal);
+            if(checkNode(current, t)){
+                return makePath(parent, s, t);
                 //return current;
             }
             else{
@@ -50,10 +56,23 @@ public class GraphSearchEngineImpl implements GraphSearchEngine {
         return null;
     }
 
+    /**
+     * Checks whether the current node is equal to the goal node using the node's name
+     * @param current - the node being compared
+     * @param goal - the node being compared against
+     * @return - a boolean whether the two nodes are the same
+     */
     public boolean checkNode(Node current, Node goal){
         return current.getName().equals(goal.getName());
     }
 
+    /**
+     * Returns the list of nodes taken to get from start to goal
+     * @param parents - A hashmap of nodes assigning the parent of the nodes used in the path from start to goal
+     * @param start - The start node
+     * @param goal - The end node
+     * @return A list of nodes indicating the path from start to goal
+     */
     public List<Node> makePath(HashMap<Node, Node> parents, Node start, Node goal){
         ArrayList<Node> path = new ArrayList<Node>();
 
@@ -64,22 +83,19 @@ public class GraphSearchEngineImpl implements GraphSearchEngine {
             currentNode = parents.get(currentNode);
         }
         path.add(0, start);
-        //list is reverse of result
-
-        //reverses list
-        //return reverseList(path);
+    
         return path;
     }
 
-    public List<Node> reverseList(List<Node> list){
-        ArrayList<Node> result = new ArrayList<Node>();
+    // public List<Node> reverseList(List<Node> list){
+    //     ArrayList<Node> result = new ArrayList<Node>();
 
-        for (int i = list.size() - 1; i >= 0; i--) {
-            result.add(list.get(i));
-        }
+    //     for (int i = list.size() - 1; i >= 0; i--) {
+    //         result.add(list.get(i));
+    //     }
 
-        return result;
-    }
+    //     return result;
+    // }
 }
 // import java.util.*;
 
